@@ -13,13 +13,15 @@ while True:
     h, w, c = frame.shape
     half_w = w // 2
 
-    half_frame = frame[:, :half_w]
+    l_frame = frame[:, :half_w]
+    r_frame = frame[:, half_w:]
 
     if not ret:
         print("프레임을 받을 수 없습니다.")
         break
 
-    cv2.imshow("camera", half_frame)
+    cv2.imshow("L", l_frame)
+    cv2.imshow("R", r_frame)
 
     if cv2.waitKey(1) == ord("q"):
         break
